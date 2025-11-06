@@ -4,7 +4,7 @@
 <Link to your project's public GitHub respository>
 
 ## Description
-Possibly a text adventure with choices you can make, your task is to help everybody you can, but in the end it's a lesson on taking a break?
+A 2d game where you're tasked to make a pancake, you're given a list of ingredients and if you overdo it, you fail.
 
 ## Features
 - Click mouse button/allow smthing to be clicked
