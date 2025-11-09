@@ -1,7 +1,7 @@
 # Make That Pancake
 
 ## Repository
-<Link to your project's public GitHub respository>
+(https://github.com/Abbroddy/Programming_Final) 
 
 ## Description
 A 2d game where you're tasked to make a pancake, you're given a list of ingredients and if you overdo it, you fail.
