@@ -1,16 +1,13 @@
 import pygame
  
 
-# class click():
-    # def __init__(image, exit_rect):
-        #exit_rect = pygame.Rect((455, 900), (1080, 1023))
-
-    #def track_mouse():
-        #for event in pygame.event.get():
-            #if event.type == pygame.MOUSEBUTTONDOWN:
-                #mouse_pos = pygame.mouse.get_pos()
+class recipe():
+    # list all ingredients
     
-    #def exit_button(mouse_pos):
+
+class ingredients():
+     
+    
         
 
 
@@ -46,8 +43,9 @@ def main():
     while running:
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print("mouse clicked")
                 mouse_pos = pygame.mouse.get_pos()
+                if mouse_pos[0] > 455 and mouse_pos[0] < 1018 and mouse_pos[1] > 900 and mouse_pos[1] < 1023:
+                        running = False
                 print(mouse_pos[0])
                 print(mouse_pos[1])
                 screen.blit(home_screen, (0, 0))
