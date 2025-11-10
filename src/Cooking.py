@@ -1,11 +1,11 @@
 import pygame
  
 
-class recipe():
+# class recipe():
     # list all ingredients
     
 
-class ingredients():
+# class ingredients():
      
     
         
