@@ -37,7 +37,7 @@ def main():
     resolution = (1500, 1048)
     screen = pygame.display.set_mode(resolution)
     title = pygame.image.load('Images/Title_screen.png')
-    home_screen = pygame.image.load('Images/Resized.png')
+    home_screen = pygame.image.load('Images/First_Screen.png')
     black = pygame.Color(0, 0, 0)
     screen.fill(black)
     screen.blit(title, (0,0))
