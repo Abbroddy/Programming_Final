@@ -5,9 +5,17 @@ import pygame
     # list all ingredients
     
 
-# class ingredients():
+class ingredients():
      
-    
+    def draw():
+        Egg_test = pygame.image.load('Images/Egg_Image.png')
+        resolution = (1500, 1048)
+        screen = pygame.display.set_mode(resolution)
+
+
+    # def is_clicked():
+
+    # def reset():
         
 
 
@@ -24,9 +32,6 @@ import pygame
             #if event.type == pygame.MOUSEBUTTONDOWN:
                 #if self.
                 #print(f"mouse clicked at: {event.pos}")
-
-#  class backdrop():
-    # this will change the background
 
 def main():
     pygame.init()
