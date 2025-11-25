@@ -1,7 +1,7 @@
 import pygame
  
 
-# class recipe():
+# class bowl():
     # list all ingredients
     
 
@@ -20,9 +20,16 @@ class Ingredient():
         if self.visible == True:
             self.screen.blit(self.image, (self.x, self.y))
             
-    #def is_clicked():
-        #stuff
-
+    def is_clicked(self, mouse_x, mouse_y):
+        wasclicked = False 
+        width = self.image.get_width()
+        height = self.image.get_height()
+        x2 = (self.x + width) 
+        y2 = (self.y + height)
+        if mouse_x > self.x and mouse_x < x2 and mouse_y > self.y and mouse_y < y2:
+            self.visible = False
+            wasclicked = True
+        return wasclicked
     # def reset():
         
 
@@ -49,9 +56,9 @@ def main():
 
     ing_list = []
     ing1 = Ingredient(2, 1, 'Images/Egg_Image.png', screen, "Egg")
-    ing2 = Ingredient(300, 500, 'Images/Egg_Image.png', screen, "Oil")
-    ing3 = Ingredient(200, 400, 'Images/Egg_Image.png', screen, "Water")
-    ing4 = Ingredient(100, 300, 'Images/Egg_Image.png', screen, "Mix")
+    ing2 = Ingredient(1264, 1, 'Images/Egg_Image.png', screen, "Oil")
+    ing3 = Ingredient(1264, 351, 'Images/Egg_Image.png', screen, "Water")
+    ing4 = Ingredient(550, 1, 'Images/Egg_Image.png', screen, "Mix")
     ing_list.append(ing1)
     ing_list.append(ing2)
     ing_list.append(ing3)
@@ -77,11 +84,16 @@ def main():
 
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
+
                 mouse_pos = pygame.mouse.get_pos()
+                print(mouse_pos)
+
                 if mouse_pos[0] > 455 and mouse_pos[0] < 1018 and mouse_pos[1] > 900 and mouse_pos[1] < 1023:
                         running = False
-                print(mouse_pos[0])
-                print(mouse_pos[1])
+
+                for item in ing_list:
+                    if item.is_clicked(mouse_pos[0], mouse_pos[1]):
+                        print(item.name)
             if event.type == pygame.quit:
                 running = False
 
