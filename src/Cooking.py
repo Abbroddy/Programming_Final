@@ -12,43 +12,28 @@ class bowl():
         self.screen = screen
 
     def ingredient_clicked(self, name):
-        good_img = True
+        good_ing = True
         if name in self.ing:
             position = self.ing.index(name)
             self.add_ing[position] = True
         else:
-            good_img = False
-        print(self.add_ing)
-        return good_img
-        
-
-
-
-        # good_ing = true
-        # if name part of self.ing, 
-        #   set add_ing = true
-        # if name not in list,
-        #   good_ing = false
-        #   return fail
-
-        # below goes in main when ing clicked
-
-        # if bowl.ingredient_clicked(name) = true
-        #   N/A
-        
-        # else: bad things ooooo
+            good_ing = False
+        return good_ing
     
     def draw(self):
-        #print(self.ing)
-        #print(self.loc)
-        print(self.add_ing)
         for index in range(len(self.ing)):
-            #print(index)
             if self.add_ing[index] == True:
                 self.screen.blit(self.image[index], self.loc[index])
-        #   draw it
 
-    # list all ingredient
+    def is_done(self):
+        done = True
+        for item in self.add_ing:
+            if item == False:
+                done = False
+        return done
+    
+    def reset(self):
+        self.add_ing = [False, False, False, False]
     
 
 class Ingredient():
@@ -93,10 +78,12 @@ def main():
     ing2 = Ingredient(1264, 1, 'Images/Egg_Image.png', screen, "oil")
     ing3 = Ingredient(1264, 351, 'Images/Egg_Image.png', screen, "water")
     ing4 = Ingredient(550, 1, 'Images/Egg_Image.png', screen, "mix")
+    ing5 = Ingredient(200, 1, 'Images/Egg_Image.png', screen, "NO PLEASE NO MORE EGGS")
     ing_list.append(ing1)
     ing_list.append(ing2)
     ing_list.append(ing3)
     ing_list.append(ing4)
+    ing_list.append(ing5)
 
 
     title = pygame.image.load('Images/Title_screen.png')
@@ -121,7 +108,7 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
 
                 mouse_pos = pygame.mouse.get_pos()
-                print(mouse_pos)
+                #print(mouse_pos)
 
                 if mouse_pos[0] > 455 and mouse_pos[0] < 1018 and mouse_pos[1] > 900 and mouse_pos[1] < 1023:
                         running = False
@@ -129,10 +116,29 @@ def main():
                 for item in ing_list:
                     if item.is_clicked(mouse_pos[0], mouse_pos[1]):
                         print(item.name)
-                        fred = the_bowl.ingredient_clicked(item.name)
+                        good_ingredient = the_bowl.ingredient_clicked(item.name)
+                        if good_ingredient == False:
+                            the_bowl.reset()
+                            for item in ing_list:
+                                item.reset()
+                            # add img woahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                            screen.blit(title, (0,0))
+                            pygame.display.flip()
+                            pygame.time.delay(4000)
+                        else: 
+                            if the_bowl.is_done() == True:
+                                the_bowl.reset()
+                                for item in ing_list:
+                                    item.reset()
+                                    # add img woahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                                screen.blit(title, (0,0))
+                                pygame.display.flip()
+                                pygame.time.delay(4000)
+
 
             if event.type == pygame.quit:
                 running = False
+
 
 if __name__ == "__main__":
     main()
