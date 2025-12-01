@@ -7,8 +7,8 @@ class bowl():
         self.ing = ["egg", "oil", "water", "mix"]
         self.add_ing = [False, False, False, False]
         # self.img_place = ['Images/Egg_Image.png', 'Images/Egg_Image.png', 'Images/Egg_Image.png', 'Images/Egg_Image.png']
-        self.image = [pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png')]
-        self.loc = [(500, 200), (500, 400), (500, 600), (500, 20)]
+        self.image = [pygame.image.load('Images/Egg_Bowl.png'), pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png')]
+        self.loc = [(470, 321), (500, 400), (500, 600), (500, 20)]
         self.screen = screen
 
     def ingredient_clicked(self, name):
@@ -74,16 +74,22 @@ def main():
     the_bowl = bowl(screen)
 
     ing_list = []
-    ing1 = Ingredient(2, 1, 'Images/Egg_Image.png', screen, "egg")
-    ing2 = Ingredient(1264, 1, 'Images/Egg_Image.png', screen, "oil")
-    ing3 = Ingredient(1264, 351, 'Images/Egg_Image.png', screen, "water")
-    ing4 = Ingredient(550, 1, 'Images/Egg_Image.png', screen, "mix")
-    ing5 = Ingredient(200, 1, 'Images/Egg_Image.png', screen, "NO PLEASE NO MORE EGGS")
+    ing1 = Ingredient(50, 750, 'Images/Egg_Image.png', screen, "egg")
+    ing2 = Ingredient(1100, 5, 'Images/Veg_Oil.png', screen, "oil")
+    ing3 = Ingredient(1400, 5, 'Images/Water.png', screen, "water")
+    ing4 = Ingredient(700, 1, 'Images/Mix.png', screen, "mix")
+    ing5 = Ingredient(400, 1, 'Images/Carrot.png', screen, "carrot")
+    ing6 = Ingredient(100, 400, 'Images/Cat_Food.png', screen, "cat food")
+    ing7 = Ingredient(50, 10, 'Images/Ketchup.png', screen, "ketchup")
+    ing8 = Ingredient(1250, 350, 'Images/Soda.png', screen, "soda")
     ing_list.append(ing1)
     ing_list.append(ing2)
     ing_list.append(ing3)
     ing_list.append(ing4)
     ing_list.append(ing5)
+    ing_list.append(ing6)
+    ing_list.append(ing7)
+    ing_list.append(ing8)
 
 
     title = pygame.image.load('Images/Title_screen.png')
@@ -91,7 +97,8 @@ def main():
     screen.fill(black)
     screen.blit(title, (0,0))
     pygame.display.flip()
-    pygame.time.delay(4000)
+    pygame.time.delay(100)
+    #4000
 
     home_screen = pygame.image.load('Images/First_Screen.png')
 
