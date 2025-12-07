@@ -97,8 +97,7 @@ def main():
     screen.fill(black)
     screen.blit(title, (0,0))
     pygame.display.flip()
-    pygame.time.delay(100)
-    #4000
+    pygame.time.delay(4000)
 
     home_screen = pygame.image.load('Images/First_Screen.png')
     Lose_img = pygame.image.load('Images/Lose.png')
