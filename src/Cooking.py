@@ -7,8 +7,8 @@ class bowl():
         self.ing = ["egg", "oil", "water", "mix"]
         self.add_ing = [False, False, False, False]
         # self.img_place = ['Images/Egg_Image.png', 'Images/Egg_Image.png', 'Images/Egg_Image.png', 'Images/Egg_Image.png']
-        self.image = [pygame.image.load('Images/Egg_Bowl.png'), pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png'), pygame.image.load('Images/Egg_Image.png')]
-        self.loc = [(470, 321), (500, 400), (500, 600), (500, 20)]
+        self.image = [pygame.image.load('Images/Egg_Bowl.png'), pygame.image.load('Images/Bowloil.png'), pygame.image.load('Images/Bowlwater.png'), pygame.image.load('Images/Bowlmix.png')]
+        self.loc = [(470, 321), (670, 372), (968, 304), (750, 354)]
         self.screen = screen
 
     def ingredient_clicked(self, name):
@@ -101,6 +101,8 @@ def main():
     #4000
 
     home_screen = pygame.image.load('Images/First_Screen.png')
+    Lose_img = pygame.image.load('Images/Lose.png')
+    Win_img = pygame.image.load('Images/Win.png')
 
     running = True
     while running:
@@ -128,8 +130,7 @@ def main():
                             the_bowl.reset()
                             for item in ing_list:
                                 item.reset()
-                            # add img woahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-                            screen.blit(title, (0,0))
+                            screen.blit(Lose_img, (0,0))
                             pygame.display.flip()
                             pygame.time.delay(4000)
                         else: 
@@ -137,8 +138,7 @@ def main():
                                 the_bowl.reset()
                                 for item in ing_list:
                                     item.reset()
-                                    # add img woahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-                                screen.blit(title, (0,0))
+                                screen.blit(Win_img, (0,0))
                                 pygame.display.flip()
                                 pygame.time.delay(4000)
 
